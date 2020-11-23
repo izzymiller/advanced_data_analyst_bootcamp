@@ -1,4 +1,4 @@
-connection: "events_ecommerce"
+connection: "looker-private-demo"
 persist_with: default
 
 # include all the views

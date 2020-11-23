@@ -20,7 +20,7 @@ view: event_session_funnel {
               THEN created_at
               ELSE NULL END
             ) as event3_time
-      FROM events
+      FROM looker-private-demo.ecomm.events
       GROUP BY 1
  ;;
   }

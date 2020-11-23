@@ -12,7 +12,7 @@ view: events_monthly_summary {
         ,COUNT(*)                AS count
         ,COUNT(DISTINCT user_id) AS distinct_user_count
         ,COUNT(DISTINCT session_id) AS distinct_session_count
-      FROM PUBLIC.EVENTS
+      FROM looker-private-demo.ecomm.EVENTS
       GROUP BY 1,2,3,4,5,6,7,8
        ;;
   }
