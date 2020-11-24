@@ -1,4 +1,4 @@
-connection: "events_ecommerce"
+connection: "looker-private-demo"
 persist_with: default
 
 # include all the views
@@ -12,8 +12,9 @@ datagroup: default {
   max_cache_age: "24 hours"
 }
 
-explore: order_items {
 
+explore: order_items {
+hidden: yes
   join: users {
     type: left_outer
     sql_on: ${order_items.user_id} = ${users.id} ;;
@@ -40,6 +41,7 @@ explore: order_items {
 }
 
 explore: events {
+  hidden:  yes
   join: event_session_facts {
     type: left_outer
     sql_on: ${events.session_id} = ${event_session_facts.session_id} ;;
@@ -58,6 +60,8 @@ explore: events {
 }
 
 explore: inventory_items {
+  hidden:  yes
+
   join: products {
     type: left_outer
     sql_on: ${inventory_items.product_id} = ${products.id} ;;
@@ -72,6 +76,8 @@ explore: inventory_items {
 }
 
 explore: users {
+  hidden:  yes
+
   label: "Users, Orders, and Inventory"
   join: order_items {
     type: left_outer
